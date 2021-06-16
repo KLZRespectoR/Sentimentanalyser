@@ -99,8 +99,8 @@ def sentiment_analyzer(text):
     else:
         print("Text is neutral")
 
-    print("positive words number: ", positive)
-    print("negative words number: ", negative)
+    print("positive words ratio: ", positive/len(text))
+    print("negative words ratio: ", negative/len(text))
 
 
 sentiment_analyzer(text_without_stopwords)
