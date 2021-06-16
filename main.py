@@ -68,4 +68,7 @@ print(text_without_stopwords)
 print(len(text_without_stopwords))
 
 
+#hflwekrfgneröqligjöoermg
+
+
 
