@@ -20,17 +20,27 @@ lower_case= text.lower()
 
 # Remove the timer:
 import re
-#def timer_eliminator(text):
-    #text= re.sub(r'[0-9:0-9]+', '', text)
-   # return text
-#print(timer_eliminator(lower_case))
+def timer_eliminator(text):
+    text = re.sub(r"[0-9][0-9]:[0-9][0-9]", '', text)
+    return text
+#print("Removing time:\n")
+no_time_text = timer_eliminator(lower_case)
+#print(no_time_text)
+
+def brackets_eliminator(text):
+    text = re.sub(r"[(]applause[)]", '', text)
+    text = re.sub(r"[(]laughter[)]", '', text)
+    return text
+
+print("Removing brackets:\n")
+#print(brackets_eliminator(no_time_text))
 
 #Remove (applause)/ (Laughter):
 
 
 #2- Remove Punctuation:
 cleaned_text= lower_case.translate(str.maketrans('','',string.punctuation))
-#print(cleaned_text)
+print(cleaned_text)
 print("the length of the text without punctuation:", len(cleaned_text))
 
 #3- Remove spaces and lines breaks:
@@ -67,8 +77,31 @@ print(text_without_stopwords)
 
 print(len(text_without_stopwords))
 
+positve_list = word_tokenize(open('positive-words.txt', encoding='utf-8').read())
+
+negative_list = word_tokenize(open('negative-words.txt', encoding='utf-8').read())
 
 
+def sentiment_analyzer(text):
+    positive = 0
+    negative = 0
+
+    for word in text:
+        if word in positve_list:
+            positive = positive +1
+        if word in negative_list:
+            negative = negative +1
+
+    if (positive > negative):
+        print("Text is positiv")
+    elif(negative > positive):
+        print("Text is negative")
+    else:
+        print("Text is neutral")
+
+    print("positive words number: ", positive)
+    print("negative words number: ", negative)
 
 
+sentiment_analyzer(text_without_stopwords)
 
