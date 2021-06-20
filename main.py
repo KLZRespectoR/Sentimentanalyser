@@ -98,6 +98,10 @@ for word in tokenized_text:
 #print("The Final version of the text:", len(text_without_stopwords))
 final_text= text_without_stopwords
 
+## POST, (NLTK) Part of Speech Tagging:
+#print(nltk.pos_tag(final_text))
+#print(nltk.pos_tag(final_text, tagset='universal'))
+
 # Build the Sentiment analyser:
 
 # 1- Reading the texts:
